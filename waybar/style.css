@@ -1,0 +1,139 @@
+* {
+ border: none;
+ border-radius: 0px;
+ font-family: "FiraCode Nerd Font Mono";
+ font-weight: bold;
+ font-size: 16px;
+ min-height: 10px;
+}
+
+@import "themes/theme.css";
+
+window#waybar {
+ color: rgba(217, 216, 216, 1);
+ background: rgba(26, 27, 38, 0.8);
+}
+
+tooltip {
+ background: @main-bg;
+ color: @main-fg;
+ border-radius: 7px;
+ border-width: 0px;
+}
+
+#workspaces button {
+ box-shadow: none;
+	text-shadow: none;
+ padding: 0px;
+ border-radius: 9px;
+ margin-top: 3px;
+ margin-bottom: 3px;
+ margin-left: 0px;
+ padding-left: 3px;
+ padding-right: 3px;
+ margin-right: 0px;
+ color: @main-fg;
+ animation: ws_normal 20s ease-in-out 1;
+}
+
+#workspaces button.active {
+ background: @wb-act-bg;
+ color: @wb-act-fg;
+ margin-left: 3px;
+ padding-left: 12px;
+ padding-right: 12px;
+ margin-right: 3px;
+ animation: ws_active 20s ease-in-out 1;
+ transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button:hover {
+ background: @wb-hvr-bg;
+ color: @wb-hvr-fg;
+ animation: ws_hover 20s ease-in-out 1;
+ transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#taskbar button {
+ box-shadow: none;
+	text-shadow: none;
+ padding: 0px;
+ border-radius: 9px;
+ margin-top: 3px;
+ margin-bottom: 3px;
+ margin-left: 0px;
+ padding-left: 3px;
+ padding-right: 3px;
+ margin-right: 0px;
+ color: @wb-color;
+ animation: tb_normal 20s ease-in-out 1;
+}
+
+#taskbar button.active {
+ background: @wb-act-bg;
+ color: @wb-act-color;
+ margin-left: 3px;
+ padding-left: 12px;
+ padding-right: 12px;
+ margin-right: 3px;
+ animation: tb_active 20s ease-in-out 1;
+ transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#taskbar button:hover {
+ background: @wb-hvr-bg;
+ color: @wb-hvr-color;
+ animation: tb_hover 20s ease-in-out 1;
+ transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#pulseaudio {
+ /* font-size: 26px; */
+}
+
+#custom-recorder {
+	font-size: 18px;
+	margin: 2px 7px 0px 7px;
+	color:#ee2e24;
+}
+
+#tray,
+#mode,
+#temperature,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#idle_inhibitor,
+#backlight,
+#custom-storage,
+#custom-cpu_speed,
+#custom-powermenu,
+#custom-spotify,
+#custom-weather,
+#custom-mail,
+#custom-media {
+ margin: 0px 0px 0px 10px;
+ padding: 0 5px;
+ /* border-top: 3px solid rgba(217, 216, 216, 0.5); */
+}
+
+/* #clock {
+ margin: 0px 16px 0px 10px;
+ min-width: 140px;
+} */
+
+#custom-storage.warning {
+ color: rgba(255, 210, 4, 1);
+}
+
+#custom-storage.critical {
+ color: rgba(238, 46, 36, 1);
+}
+
+@keyframes blink {
+ to {
+ background-color: #ffffff;
+ color: black;
+ }
+}
