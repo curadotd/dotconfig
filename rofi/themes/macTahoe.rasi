@@ -1,0 +1,55 @@
+/* macTahoe.rasi — SAFE, tested syntax */
+
+* {
+    font: "SF Pro Text 12";
+    background-color: transparent;
+    text-color: rgba(235,235,245,0.92);
+}
+
+window {
+    width: 620px;
+    location: center;
+    anchor: center;
+
+    background-color: rgba(18,18,20,0.58);
+    border: 1px;
+    border-color: rgba(255,255,255,0.14);
+    border-radius: 18px;
+    padding: 14px;
+}
+
+mainbox {
+    spacing: 10px;
+}
+
+inputbar {
+    background-color: rgba(255,255,255,0.06);
+    border: 1px;
+    border-color: rgba(255,255,255,0.14);
+    border-radius: 14px;
+    padding: 10px;
+}
+
+prompt {
+    text-color: rgba(235,235,245,0.62);
+}
+
+entry {
+    text-color: rgba(235,235,245,0.92);
+}
+
+listview {
+    lines: 9;
+    spacing: 8px;
+    background-color: transparent;
+}
+
+element {
+    background-color: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 10px;
+}
+
+element selected {
+    background-color: rgba(108,182,255,0.22);
+}

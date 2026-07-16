@@ -1,25 +1,14 @@
-# Nordic-darker color palette
-#1F2335	user
-#3b4252	dir
-#292E42	git
-#4c566a	version
-#3B4261	doc (from dracula color palette)
-#414868	time (from dracula color palette)
-
-# some extra symbols
-# 
-# 
+# Mac Tahoe Dark starship (graphite + Tahoe blue)
 
 format = """
-[░▒▓](#1F2335)\
-$os\
+[░▒▓](#141417)\
 $username\
-[](bg:#3b4252 fg:#1F2335)\
+[](bg:#1C1D21 fg:#141417)\
 $directory\
-[](fg:#3b4252 bg:#292E42)\
+[](fg:#1C1D21 bg:#24252A)\
 $git_branch\
 $git_status\
-[](fg:#292E42 bg:#4c566a)\
+[](fg:#24252A bg:#2A2B30)\
 $c\
 $python\
 $elixir\
@@ -32,33 +21,31 @@ $nodejs\
 $nim\
 $rust\
 $scala\
-[](fg:#4c566a bg:#3B4261)\
+[](fg:#2A2B30 bg:#1C1D21)\
 $docker_context\
-[](fg:#3B4261 bg:#414868)\
+[](fg:#1C1D21 bg:#1A1B20)\
 $time\
-[ ](fg:#414868)\
-\n
+[ ](fg:#1A1B20)\
+\n\
 $cmd_duration\
 $character\
 """
-#add_newline = false
 
 [line_break]
 disabled = false
 
 [username]
 show_always = true
-style_user = "bg:#1F2335"
-style_root = "bg:#C0CAF5"
-format = '[ $user ]($style)'
+style_user = "bg:#141417 fg:#E7E7EA"
+style_root = "bg:#141417 fg:#FF6B6B"
+format = '[ $user ]($style)'
 disabled = false
 
-[os]
-style = "bg:#C0CAF5"
-disabled = true # Disabled by default
+# If you later want an Apple glyph here:
+# format = '[  $user ]($style)'
 
 [directory]
-style = "bg:#3b4252"
+style = "bg:#1C1D21 fg:#E7E7EA"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -69,91 +56,91 @@ truncation_symbol = "…/"
 "Music" = " "
 "Pictures" = " "
 
-[c]
-symbol = " "
-style = "bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
-
-[python]
-symbol = " "
-style = "bg:#4c566a"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#3B4261"
-format = '[ $symbol $context ]($style) $path'
-
-[elixir]
-symbol = " "
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
-
 [git_branch]
 symbol = ""
-style = "bg:#292E42"
+style = "bg:#24252A fg:#79B8FF"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#292E42"
+style = "bg:#24252A fg:#E7E7EA"
 format = '[$all_status$ahead_behind ]($style)'
+
+# Languages: keep them subtle, same “tool strip” background
+[c]
+symbol = " "
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
+
+[python]
+symbol = " "
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
+
+[elixir]
+symbol = " "
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
 
 [golang]
 symbol = " "
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
 
 [haskell]
 symbol = " "
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
 
 [nim]
 symbol = " "
-style = "bg:##292E42"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
 
 [scala]
 symbol = " "
-style = "bg:#292E42"
-format = '[ $symbol ($version) ]($style)'
+style = "bg:#2A2B30 fg:#E7E7EA"
+format = '[ $symbol($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#1C1D21 fg:#E7E7EA"
+format = '[ $symbol $context ]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#414868"
+time_format = "%R"
+style = "bg:#1A1B20 fg:#9A9AA3"
 format = '[  $time ]($style)'
 
 [character]
-success_symbol = '[ ➜](#414868)'
-error_symbol = '[ ➜](bold red)'
-#style = "bg:#414868"
+success_symbol = '[ ➜](#79B8FF)'
+error_symbol = '[ ➜](bold #FF6B6B)'
 
 [cmd_duration]
 min_time = 500
-format = ' [$duration](#414868)'
+format = ' [$duration](#9A9AA3)'

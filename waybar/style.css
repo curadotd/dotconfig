@@ -1,139 +1,151 @@
+/* Tahoe-ish glass Waybar (keeps your features) */
+
 * {
- border: none;
- border-radius: 0px;
- font-family: "FiraCode Nerd Font Mono";
- font-weight: bold;
- font-size: 16px;
- min-height: 10px;
+  border: none;
+  border-radius: 0px;
+
+  /* Use SF Pro if installed; fallback to Inter then your nerd font */
+  font-family: "SF Pro Text", "Inter", "FiraCode Nerd Font Mono";
+  font-weight: 600;
+  font-size: 12px;
+
+  min-height: 0px;
 }
 
-@import "themes/theme.css";
+/* Keep if you still want theme variables; disable if it fights this style */
+/* @import "themes/theme.css"; */
 
 window#waybar {
- color: rgba(217, 216, 216, 1);
- background: rgba(26, 27, 38, 0.8);
+  background: transparent;
+  color: rgba(235, 235, 245, 0.92);
 }
 
+/* Floating glass pill */
+#waybar {
+  background: rgba(18, 18, 20, 0.40);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  padding: 6px 10px;
+}
+
+/* Popover tooltips */
 tooltip {
- background: @main-bg;
- color: @main-fg;
- border-radius: 7px;
- border-width: 0px;
+  background: rgba(20, 20, 22, 0.92);
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px;
 }
 
-#workspaces button {
- box-shadow: none;
-	text-shadow: none;
- padding: 0px;
- border-radius: 9px;
- margin-top: 3px;
- margin-bottom: 3px;
- margin-left: 0px;
- padding-left: 3px;
- padding-right: 3px;
- margin-right: 0px;
- color: @main-fg;
- animation: ws_normal 20s ease-in-out 1;
-}
+/* Shared capsule styling */
 
-#workspaces button.active {
- background: @wb-act-bg;
- color: @wb-act-fg;
- margin-left: 3px;
- padding-left: 12px;
- padding-right: 12px;
- margin-right: 3px;
- animation: ws_active 20s ease-in-out 1;
- transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#workspaces button:hover {
- background: @wb-hvr-bg;
- color: @wb-hvr-fg;
- animation: ws_hover 20s ease-in-out 1;
- transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#taskbar button {
- box-shadow: none;
-	text-shadow: none;
- padding: 0px;
- border-radius: 9px;
- margin-top: 3px;
- margin-bottom: 3px;
- margin-left: 0px;
- padding-left: 3px;
- padding-right: 3px;
- margin-right: 0px;
- color: @wb-color;
- animation: tb_normal 20s ease-in-out 1;
-}
-
-#taskbar button.active {
- background: @wb-act-bg;
- color: @wb-act-color;
- margin-left: 3px;
- padding-left: 12px;
- padding-right: 12px;
- margin-right: 3px;
- animation: tb_active 20s ease-in-out 1;
- transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#taskbar button:hover {
- background: @wb-hvr-bg;
- color: @wb-hvr-color;
- animation: tb_hover 20s ease-in-out 1;
- transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#pulseaudio {
- /* font-size: 26px; */
-}
-
-#custom-recorder {
-	font-size: 18px;
-	margin: 2px 7px 0px 7px;
-	color:#ee2e24;
-}
-
-#tray,
-#mode,
-#temperature,
 #cpu,
 #memory,
 #network,
 #pulseaudio,
 #idle_inhibitor,
-#backlight,
+#bluetooth,
+#clock,
+#hyprland-submap,
+#hyprland-window,
+#custom-cliphist,
+#custom-cpuinfo,
+#custom-gpuinfo,
+#custom-powermenu,
+#taskbar,
+#mode,
+#temperature,
 #custom-storage,
 #custom-cpu_speed,
-#custom-powermenu,
-#custom-spotify,
-#custom-weather,
-#custom-mail,
 #custom-media {
- margin: 0px 0px 0px 10px;
- padding: 0 5px;
- /* border-top: 3px solid rgba(217, 216, 216, 0.5); */
+  background: rgba(255, 255, 255, 0.06);
+  /* border: 1px solid rgba(255, 255, 255, 0.10); */
+  border: none;
+  /* border-radius: 2px; */
+  padding: 0px 6px;
+  margin: 0px 0px 0px 0px;
+  color: rgba(235, 235, 245, 0.92);
 }
 
-/* #clock {
- margin: 0px 16px 0px 10px;
- min-width: 140px;
-} */
-
-#custom-storage.warning {
- color: rgba(255, 210, 4, 1);
+/* Avoid left-margin stacking on the left side */
+#workspaces,
+#hyprland-submap,
+#hyprland-window {
+  margin-left: 0px;
 }
 
-#custom-storage.critical {
- color: rgba(238, 46, 36, 1);
+/* Workspaces container */
+#workspaces {
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  /* border-radius: 2px; */
+  padding: 4px 6px;
+  margin-right: 8px;
 }
 
-@keyframes blink {
- to {
- background-color: #ffffff;
- color: black;
- }
+/* Workspace buttons */
+#workspaces button {
+  background: transparent;
+  border: none;
+  padding: 2px 8px;
+  margin: 0px 2px;
+  color: rgba(235, 235, 245, 0.60);
+  box-shadow: none;
+  text-shadow: none;
+  transition: all 180ms ease;
+}
+
+#workspaces button.active {
+  background: rgba(108, 182, 255, 0.18);
+  border: none;
+  color: rgba(235, 235, 245, 0.95);
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: rgba(235, 235, 245, 0.92);
+}
+
+/* Taskbar container */
+#taskbar {
+  padding: 4px 6px;
+}
+
+/* Taskbar app buttons */
+#taskbar button {
+  background: transparent;
+  border: none;
+  padding: 2px 8px;
+  margin: 0px 2px;
+  color: rgba(235, 235, 245, 0.70);
+  box-shadow: none;
+  text-shadow: none;
+  transition: all 180ms ease;
+}
+
+#taskbar button.active {
+  background: rgba(255, 255, 255, 0.10);
+  border: none;
+  color: rgba(235, 235, 245, 0.95);
+}
+
+#taskbar button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Clock a bit more “center stage” */
+#clock {
+  background: rgba(255, 255, 255, 0.07);
+  border: none;
+  padding: 4px 14px;
+}
+
+/* Memory state colors */
+#memory.m {
+  color: rgba(255, 210, 122, 0.95);
+}
+#memory.c {
+  color: rgba(255, 110, 110, 0.95);
 }
