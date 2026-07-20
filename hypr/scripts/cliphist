@@ -59,10 +59,10 @@ elem_border=`[ $hypr_border -eq 0 ] && echo "5" || echo $hypr_border`
 r_override="window {border: ${hypr_width}px; border-radius: ${wind_border}px;} entry {border-radius: ${elem_border}px;} element {border-radius: ${elem_border}px;}"
 
 
-# read hypr font size
+# read font from gsettings (family and size)
 
-fnt_override=`gsettings get org.gnome.desktop.interface monospace-font-name | awk '{gsub(/'\''/,""); print $NF}'`
-fnt_override="configuration {font: \"JetBrainsMono Nerd Font ${fnt_override}\";}"
+fnt_override=`gsettings get org.gnome.desktop.interface monospace-font-name | sed "s/'//g"`
+fnt_override="configuration {font: \"${fnt_override}\";}"
 
 
 # clipboard action

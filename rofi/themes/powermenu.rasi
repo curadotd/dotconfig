@@ -1,11 +1,4 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
+/*****----- Power menu — macOS Tahoe glass -----*****/
 
 /*****----- Configuration -----*****/
 configuration {
@@ -14,7 +7,6 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    /* Resolution : 1920x1080 */
     mainbox-spacing:             100px;
     mainbox-margin:              150px 400px;
     message-margin:              0px 350px;
@@ -22,17 +14,17 @@ configuration {
     message-border-radius:       15px;
     listview-spacing:            50px;
     element-padding:             35px 40px;
-    element-border-radius:       20px;
+    element-border-radius:       24px;
 
-    prompt-font:                 "MesloLGS Nerd Font Bold 72";
-    textbox-font:                "MesloLGS Nerd Font 14";
-    element-text-font:           "feather 64";
+    prompt-font:                 "SF Pro Display Bold 72";
+    textbox-font:                "SF Pro Text 14";
+    element-text-font:           "FiraCode Nerd Font Mono 64";
 
-    background-window:           black/30%;
-    background-normal:           white/5%;
-    background-selected:         white/15%;
-    foreground-normal:           white;
-    foreground-selected:         white;
+    background-window:           #14141766;
+    background-normal:           #FFFFFF0F;
+    background-selected:         #6CB6FF38;
+    foreground-normal:           #EBEBF5EB;
+    foreground-selected:         #F2F2F5FF;
 }
 
 /*****----- Main Window -----*****/
@@ -102,7 +94,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     var(listview-spacing);
     background-color:            transparent;
     cursor:                      "default";

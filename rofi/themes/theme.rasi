@@ -1,10 +1,11 @@
+/* macOS Tahoe glass palette (shared by clipboard.rasi and script overrides) */
 * {
-    main-bg:  #24283be6;
-    main-fg:  #c0caf5ff;
-    main-br:  #bb9af7ff;
-    main-ex:  #7dcfffcc;
-    select-bg:     #7aa2f7ff;
-    select-fg:     #24283bff;
+    main-bg:  #141417D9;
+    main-fg:  #EBEBF5EB;
+    main-br:  #FFFFFF24;
+    main-ex:  #6CB6FFCC;
+    select-bg:     #6CB6FF38;
+    select-fg:     #F2F2F5FF;
     separatorcolor:     transparent;
     border-color:  transparent;
 }

@@ -27,10 +27,10 @@ elem_border=`[ $hypr_border -eq 0 ] && echo "10" || echo $(( hypr_border * 2 ))`
 r_override="window {border: ${hypr_width}px; border-radius: ${wind_border}px;} element {border-radius: ${elem_border}px;}"
 
 
-# read hypr font size
+# read font from gsettings (family and size)
 
-fnt_override=`gsettings get org.gnome.desktop.interface font-name | awk '{gsub(/'\''/,""); print $NF}'`
-fnt_override="configuration {font: \"JetBrainsMono Nerd Font ${fnt_override}\";}"
+fnt_override=`gsettings get org.gnome.desktop.interface font-name | sed "s/'//g"`
+fnt_override="configuration {font: \"${fnt_override}\";}"
 
 
 # read hypr theme icon

@@ -1,12 +1,25 @@
 #!/bin/bash
+# Restart the xdg-desktop-portal stack in the right order.
+# Portal binaries live in /usr/lib on Arch and /usr/libexec on most other distros.
+
+portal_bin() {
+    for dir in /usr/lib /usr/libexec /usr/lib/xdg-desktop-portal; do
+        if [ -x "$dir/$1" ]; then
+            echo "$dir/$1"
+            return 0
+        fi
+    done
+    return 1
+}
+
 sleep 1
-killall xdg-desktop-portal-hyprland
-killall xdg-desktop-portal-wlr
-killall xdg-desktop-portal-kde
-killall xdg-desktop-portal-gtk
-killall xdg-desktop-portal
-/usr/lib/xdg-desktop-portal-hyprland &
+killall xdg-desktop-portal-hyprland 2>/dev/null
+killall xdg-desktop-portal-wlr 2>/dev/null
+killall xdg-desktop-portal-kde 2>/dev/null
+killall xdg-desktop-portal-gtk 2>/dev/null
+killall xdg-desktop-portal 2>/dev/null
+"$(portal_bin xdg-desktop-portal-hyprland)" &
 sleep 2
-/usr/lib/xdg-desktop-portal-gtk &
+"$(portal_bin xdg-desktop-portal-gtk)" &
 sleep 2
-/usr/lib/xdg-desktop-portal &
+"$(portal_bin xdg-desktop-portal)" &

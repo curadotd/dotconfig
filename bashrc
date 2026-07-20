@@ -33,5 +33,11 @@ eval "$(starship init bash)"
 #Enviroment Variables
 export PATH="/mnt/repository/bin/linux:$PATH"
 
-#Add git autocompletion
-source /usr/share/git/completion/git-completion.bash
+#Add git autocompletion (path differs per distro)
+for git_completion in /usr/share/git/completion/git-completion.bash \
+                      /usr/share/bash-completion/completions/git; do
+    if [ -f "$git_completion" ]; then
+        source "$git_completion"
+        break
+    fi
+done

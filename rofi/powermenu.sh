@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
-## Author : Aditya Shakya (adi1090x)
-## Github : @adi1090x
+# Power menu for Hyprland and DWM sessions
 
 # CMDs
-uptime="`uptime -p | sed -e 's/up //g'`"
+uptime="$(uptime -p | sed -e 's/up //g')"
 
-# Options
+# Options (Nerd Font glyphs)
 shutdown='󰐥'
 reboot='󰜉'
-lock=''
-suspend=''
+lock='󰌾'
+suspend='󰤄'
 logout='󰍃'
 
 # Rofi CMD
@@ -36,28 +35,25 @@ run_cmd() {
 			systemctl reboot
 			;;
 		--suspend)
-			mpc -q pause
-			amixer set Master mute
+			playerctl -a pause 2>/dev/null
 			systemctl suspend
 			;;
 		--logout)
-			case "$DESKTOP_SESSION" in
-				openbox)
-					openbox --exit
-					;;
-				bspwm)
-					bspc quit
-					;;
-				dwm)
-					pkill dwm
-					;;
-				i3)
-					i3-msg exit
-					;;
-				plasma)
-					qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-					;;
-			esac
+			if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
+				hyprctl dispatch exit
+			else
+				case "$DESKTOP_SESSION" in
+					dwm)
+						pkill dwm
+						;;
+					plasma)
+						qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+						;;
+					*)
+						loginctl terminate-session "$XDG_SESSION_ID"
+						;;
+				esac
+			fi
 			;;
 	esac
 }
@@ -72,10 +68,10 @@ case "${chosen}" in
 		run_cmd --reboot
         ;;
     "${lock}")
-		if [[ -x '/usr/bin/betterlockscreen' ]]; then
-			betterlockscreen -l
-		elif [[ -x '/usr/bin/i3lock' ]]; then
-			i3lock
+		if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
+			hyprlock
+		elif command -v i3lock >/dev/null 2>&1; then
+			i3lock -c 141417
 		fi
         ;;
     "${suspend}")

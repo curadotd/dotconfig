@@ -162,7 +162,7 @@
     "wlr/taskbar": {
       "format": "{icon}",
       "icon-size": 16,
-      "icon-theme": "Tela-dark",
+      "icon-theme": "MacTahoe-nord-dark",
       "spacing": 0,
       "tooltip-format": "{title}",
       "on-click": "activate",
