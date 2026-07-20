@@ -1,3 +1,7 @@
 #!/bin/bash
-# Shutdown script using hyprshutdown
-hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'
+# Shutdown script - closes Hyprland gracefully then powers off
+if command -v hyprshutdown >/dev/null 2>&1; then
+    hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'
+else
+    systemctl poweroff
+fi

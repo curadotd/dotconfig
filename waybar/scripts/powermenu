@@ -1,3 +1,8 @@
 #!/bin/bash
+# Power menu: hyprshutdown when available (Arch/AUR), rofi power menu elsewhere
 
-hyprshutdown --dry-run
+if command -v hyprshutdown >/dev/null 2>&1; then
+    hyprshutdown --dry-run
+else
+    "$HOME/.config/rofi/powermenu.sh"
+fi

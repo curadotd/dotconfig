@@ -1,3 +1,7 @@
 #!/bin/bash
 # Restart script - closes Hyprland gracefully then reboots
-hyprshutdown -t 'Restarting...' --post-cmd 'reboot'
+if command -v hyprshutdown >/dev/null 2>&1; then
+    hyprshutdown -t 'Restarting...' --post-cmd 'reboot'
+else
+    systemctl reboot
+fi
